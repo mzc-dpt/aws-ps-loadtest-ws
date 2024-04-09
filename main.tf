@@ -40,6 +40,4 @@ resource "aws_instance" "ubuntu" {
   tags = {
     Name = "Provisioned by Terraform 1"
   }
-  provider      = "${var.alias_region}"
-
 }
