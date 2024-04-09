@@ -8,13 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  alias   = "japan"
-  region  = "ap-northeast-1"
-}
-
-provider "aws" {
   region  = "ap-northeast-2"
-  alias   = "seoul"
 }
 
 data "aws_ami" "ubuntu" {
