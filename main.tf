@@ -8,9 +8,13 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-northeast-2"
-#  access_key = "my-access-key"
-#  secret_key = "my-secret-key"  
+  alias   = "japan"
+  region  = "ap-northeast-1"
+}
+
+provider "aws" {
+  region  = "ap-northeast-2"
+  alias   = "seoul"
 }
 
 data "aws_ami" "ubuntu" {
@@ -36,4 +40,6 @@ resource "aws_instance" "ubuntu" {
   tags = {
     Name = "Provisioned by Terraform 1"
   }
+  provider      = "${var.alias_region}"
+
 }
